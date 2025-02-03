@@ -1,7 +1,8 @@
-.PHONY: names
+.PHONY: run
 
-macos/linkmy.o: macos/Sources/root.swift
-	swiftc -c -parse-as-library -o macos/linkmy.o macos/Sources/root.swift
+macos/linkmy.o: macos/Sources/port.m
+	clang -c -o macos/linkmy.o macos/Sources/port.m
 
-names:
-	install_name_tool -change /usr/lib/swift/libswift_errno.dylib @rpath/libswift_errno.dylib zig-out/my.app/Contents/MacOS/nn
+run:
+	./zig-out/my.app/Contents/MacOS/nn
+

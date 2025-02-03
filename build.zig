@@ -2,7 +2,6 @@ const std = @import("std");
 
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
-
     const optimize = b.standardOptimizeOption(.{});
 
     const exe = b.addExecutable(.{
@@ -12,34 +11,36 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    exe.addLibraryPath(.{ .cwd_relative = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift" });
-    exe.addRPath(.{ .cwd_relative = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift" });
-    exe.linkSystemLibrary2("swiftCore", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftIOKit", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftCoreFoundation", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftXPC", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftunistd", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftUniformTypeIdentifiers", .{ .weak = true });
-    exe.linkSystemLibrary2("swift_Builtin_float", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftos", .{ .weak = true });
-    exe.linkSystemLibrary2("swift_math", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftsys_time", .{ .weak = true });
-    exe.linkSystemLibrary2("swift_signal", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftSpatial", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftCoreImage", .{ .weak = true });
-    exe.linkSystemLibrary2("swift_time", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftObjectiveC", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftOSLog", .{ .weak = true });
-    exe.linkSystemLibrary2("swift_stdio", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftMetal", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftQuartzCore", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftsimd", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftDispatch", .{ .weak = true });
-    exe.linkSystemLibrary2("swiftDarwin", .{ .weak = true });
-    exe.linkSystemLibrary2("swift_errno", .{ .weak = true });
+    // exe.addLibraryPath(.{ .cwd_relative = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift" });
+    // exe.addRPath(.{ .cwd_relative = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift" });
 
-    exe.linkFrameworkWeak("swiftUI");
-    exe.linkFrameworkWeak("appKit");
+    // exe.linkSystemLibrary("swiftCore");
+    // exe.linkSystemLibrary("swiftIOKit");
+    // exe.linkSystemLibrary("swiftCoreFoundation");
+    // exe.linkSystemLibrary("swiftXPC");
+    // exe.linkSystemLibrary("swiftunistd");
+    // exe.linkSystemLibrary("swiftUniformTypeIdentifiers");
+    // exe.linkSystemLibrary("swift_Builtin_float");
+    // exe.linkSystemLibrary("swiftos");
+    // exe.linkSystemLibrary("swift_math");
+    // exe.linkSystemLibrary("swiftsys_time");
+    // exe.linkSystemLibrary("swift_signal");
+    // exe.linkSystemLibrary("swiftSpatial");
+    // exe.linkSystemLibrary("swiftCoreImage");
+    // exe.linkSystemLibrary("swift_time");
+    // exe.linkSystemLibrary("swiftObjectiveC");
+    // exe.linkSystemLibrary("swiftOSLog");
+    // exe.linkSystemLibrary("swift_stdio");
+    // exe.linkSystemLibrary("swiftMetal");
+    // exe.linkSystemLibrary("swiftQuartzCore");
+    // exe.linkSystemLibrary("swiftsimd");
+    // exe.linkSystemLibrary("swiftDispatch");
+    // exe.linkSystemLibrary("swiftDarwin");
+    // exe.linkSystemLibrary("swift_errno");
+
+    exe.linkFramework("Cocoa");
+    // exe.linkFramework("swiftUI");
+    // exe.linkFramework("appKit");
     exe.addObjectFile(b.path("macos/linkmy.o"));
 
 
