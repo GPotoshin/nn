@@ -1,7 +1,5 @@
 #import <Cocoa/Cocoa.h>
 
-
-
 void showImage(unsigned char *c_buffer) {
     @autoreleasepool {
         [NSApplication sharedApplication];
@@ -30,7 +28,7 @@ void showImage(unsigned char *c_buffer) {
         ];
         NSWindow *window = [[NSWindow alloc]
             initWithContentRect:NSMakeRect(0, 0, 200, 200)
-            styleMask:(NSWindowStyleMaskTitled |
+            styleMask:(NSWindowStyleMaskTitled   |
                        NSWindowStyleMaskClosable |
                        NSWindowStyleMaskResizable)
             backing:NSBackingStoreBuffered
